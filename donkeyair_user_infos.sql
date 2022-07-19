@@ -16,30 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `users`
+-- Table structure for table `user_infos`
 --
 
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `user_infos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `users` (
+CREATE TABLE `user_infos` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `mdp` varchar(45) NOT NULL,
-  `userdetail_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_users_usersdetails` (`userdetail_id`),
-  CONSTRAINT `fk_users_usersdetails` FOREIGN KEY (`userdetail_id`) REFERENCES `usersdetails` (`id`)
+  `firstname` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `user_infos`
 --
 
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'1234',1),(2,'1234',2),(3,'1234',3),(4,'1234',4),(5,'1234',5);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+LOCK TABLES `user_infos` WRITE;
+/*!40000 ALTER TABLE `user_infos` DISABLE KEYS */;
+INSERT INTO `user_infos` VALUES (1,'Béatrice','Patisson','b.patisson@gmail.com'),(2,'Alexandre','Bonnard','a.bonnard@gmail.com'),(3,'Matthieu','Dronzin','m.dronzin@gmail.com'),(4,'Ali','Hamouga','a.hamouga@gmail.com'),(5,'Cédric','Lombardot','c.lombardot@gmail.com');
+/*!40000 ALTER TABLE `user_infos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-19 11:54:40
+-- Dump completed on 2022-07-19 13:46:39

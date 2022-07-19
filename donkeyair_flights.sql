@@ -29,7 +29,7 @@ CREATE TABLE `flights` (
   `schedule` varchar(30) NOT NULL,
   `date` date NOT NULL,
   `flightduration` varchar(5) NOT NULL,
-  `volnb` varchar(5) NOT NULL,
+  `vol_number` varchar(5) NOT NULL,
   `price` varchar(5) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-19 11:54:41
+-- Dump completed on 2022-07-19 13:46:42

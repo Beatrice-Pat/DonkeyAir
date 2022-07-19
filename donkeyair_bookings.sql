@@ -26,15 +26,15 @@ CREATE TABLE `bookings` (
   `id` int NOT NULL AUTO_INCREMENT,
   `reservation_date` date NOT NULL,
   `flight_id` int NOT NULL,
-  `userdetail_id` int NOT NULL,
+  `user_id` int NOT NULL,
   `option_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_bookings_flights` (`flight_id`),
   KEY `fk_bookings_options` (`option_id`),
-  KEY `fk_bookings_usersdetails` (`userdetail_id`),
+  KEY `fk_bookings_user_infos` (`user_id`),
   CONSTRAINT `fk_bookings_flights` FOREIGN KEY (`flight_id`) REFERENCES `flights` (`id`),
   CONSTRAINT `fk_bookings_options` FOREIGN KEY (`option_id`) REFERENCES `options` (`id`),
-  CONSTRAINT `fk_bookings_usersdetails` FOREIGN KEY (`userdetail_id`) REFERENCES `usersdetails` (`id`)
+  CONSTRAINT `fk_bookings_users_infos` FOREIGN KEY (`user_id`) REFERENCES `user_infos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-19 11:54:41
+-- Dump completed on 2022-07-19 13:46:40
