@@ -1,44 +1,50 @@
 <?php
 
-
 session_start();
+check_user();
 
-//on controle si les champs email et password est bien rempli sinon messages ERROR
-if (isset($_REQUEST['login'])) {
-
-    $email = strtolower(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
-    $password = htmlspecialchars($_POST['password']);
+function check_user() : string
+{
+    GLOBAL $pdo;
+    //on controle si les champs email et password est bien rempli sinon messages ERROR
+    if (isset($_REQUEST['login'])) {
+        return "Veuillez saisir un login";
+    }
 
     if (empty($email)) {
-        $mailErr = 'Entrer un mail s\'il vous plait !';
+        return 'Entrer un mail s\'il vous plait !';
     }
 
     if (empty($password)) {
-        $passwordErr = 'Entrer un mot de passe s\'il vous plait !';
-    } else {
-        try {
-            //on controle si le mail est bien dans notre database(si le user est déja inscrit)
-            $select_statment = $pdo->prepare("SELECT * FROM user WHERE email = :email");
-            $select_statment->execute([':email' => $email]);
-            $row = $select_statment->fetch(PDO::FETCH_ASSOC);
-            if ($select_statment->rowCount() > 0) {
-                // on controle si le password corespond bien à celui de notre bdd
-                if (password_verify($password, $row['password'])) {
+        return 'Entrer un mot de passe s\'il vous plait !';
+    }
 
-                    $_SESSION['userName'] = $row["user_name"];
-                    $_SESSION['userEmail'] = $row["email"];
-                    $_SESSION['userId'] = $row["id"];
-                    header('location:index.php');
-                } else {
-                    $errorMessage = 'Mot de passe ou mail incorrect !';
-                }
-            } else {
-                $errorMessage = 'Mot de passe ou mail incorrect !';
-                echo $errorMessage;
-            }
-        } catch (PDOException $e) {
-            echo "ERROR!!!: " . $e->getMessage();
+    try {
+        $email = strtolower(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
+        $password = htmlspecialchars($_POST['password']);
+        //on controle si le mail est bien dans notre database(si le user est déja inscrit)
+        $select_statment = $pdo->prepare("SELECT * FROM user WHERE email = :email");
+        $select_statment->execute([':email' => $email]);
+        $row = $select_statment->fetch(PDO::FETCH_ASSOC);
+
+        if ($select_statment->rowCount() == 0) {
+            return "Veuillez vous enregistrer.";
         }
+
+        if ($select_statment->rowCount() > 1) {
+            return "Veuillez contacter l'administrateur.";
+        }
+        // on controle si le password corespond bien à celui de notre bdd
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['userName'] = $row["user_name"];
+            $_SESSION['userEmail'] = $row["email"];
+            $_SESSION['userId'] = $row["id"];
+            header('location:index.php');
+        } else {
+                return 'Mot de passe ou mail incorrect !';
+        }
+    } catch (PDOException $e) {
+        echo "ERROR!!!: " . $e->getMessage();
     }
 }
 ?>
