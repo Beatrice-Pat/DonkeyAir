@@ -2,18 +2,20 @@
 //connexion à la base de données
 require_once './connec.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    var_dump($_POST);
+}
 try {
   $db = new PDO(DB_DSN, DB_USER, DB_PASS);
   $db->exec("SET NAMES utf8");
 } catch (PDOException $e) {
   die($e->getMessage());
 }
-
-//$sql = $requete->fetchAll();
-$sql = "SELECT DISTINCT `from` FROM `flights`";
-//exécute la requete
+//On écrit la requête
+$sql = "SELECT DISTINCT FROM `flights` ";
+//On évécute la requête
 $requete = $db->query($sql);
-//récupère les données
+//On récupère les données
 $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
 
 ?>
@@ -62,13 +64,13 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
   <!--Espace réservation-->
   <div class="container py-5 bg-light">
     <div class="row">
-      <form action="page-recherche.php" method="post"></form>
+      <form action="booking.php" method="post">
       <div class="col-md-4 col-sm-6">
         <!--Barre de départ-->
         <select name="departure" id="departure-select" required>
-          <option value="departure">--Ville de départ--</option>
+          <option value="">--Ville de départ--</option>
           <?php foreach ($flights as $flight) { ?>
-            <option value=""><?php echo $flight['from']; ?></option>
+            <option value="<?php echo $flight['id'] ?>"><?php echo $flight['from']; ?></option>
           <?php } ?>
         </select>
       </div>
@@ -77,7 +79,7 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
         <select name="country" id="country-select" required>
           <option value="">--Choisissez votre destination--</option>
           <?php foreach ($flights as $flight) { ?>
-            <option value=""><?php echo $flight['from']; ?></option>
+            <option value="<?php echo $flight['id'] ?>"><?php echo $flight['from']; ?></option>
           <?php } ?>
         </select>
       </div>
@@ -112,14 +114,11 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
       </div>
       <!--Bouton recherche-->
       <div class="col-md-12 col-sm-6 text-center">
-        <a href="./page-recherche.php" class="btn btn btn-secondary">Recherche</a>
-        <?php $flight = "SELECT * FROM `fligths` WHERE `from` LIKE 'Pa%'" ?>
-        <?php echo ($flight) ?>
+        <input type="submit" value="Recherche" class="btn btn btn-secondary">
       </div>
       </form>
     </div>
   </div>
-
   <!--Bootstrap-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
