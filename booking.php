@@ -13,7 +13,7 @@ try {
 }
 //On écrit la requête
 $sql = "SELECT * FROM `flights` ";
-//On évécute la requête
+//On exécute la requête
 $requete = $db->query($sql);
 //On récupère les données
 $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
@@ -22,7 +22,6 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +31,6 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
   <link href="style.css" rel="stylesheet">
   <title>Réservations</title>
 </head>
-
 <body>
   <!--Barre de navigation-->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">

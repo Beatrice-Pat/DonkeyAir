@@ -52,12 +52,10 @@ function user_login()
         }
     } catch (PDOException $e) {
         echo "ERROR!!!: " . $e->getMessage();
-    }
-}
 ?>
 
+<!Doctype html>
 
-<!doctype html>
 <html lang="fr">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,7 +75,9 @@ function user_login()
 <body>
     <main>
     <div id="container">
+
         <form action="" method="POST">
+
             <h1>Connexion</h1>
                 
             <label><b></b></label>
