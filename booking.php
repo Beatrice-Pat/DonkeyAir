@@ -12,7 +12,7 @@ try {
   die($e->getMessage());
 }
 //On écrit la requête
-$sql = "SELECT DISTINCT FROM `flights` ";
+$sql = "SELECT * FROM `flights` ";
 //On évécute la requête
 $requete = $db->query($sql);
 //On récupère les données
