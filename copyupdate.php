@@ -15,14 +15,11 @@ include('header.php');
 try{
     $id = $_GET['updateid'];
     $sql = "SELECT * FROM bookings WHERE id = :id";
-    $statement= $pdo->prepare($sql);
+    $statement = $pdo->prepare($sql);
     $statement->execute([':id'=>$id]);
-    $bookings = $statement ->fetch();
-    $id= $bookings['id'];
-    $reservation_date=$bookings['reservation_date'];
-    $flight_id=$bookings['flight_id'];
-    $user_id = $bookings['user_id'];
-    $option_id = $bookings['option_id'];
+    $options = $statement ->fetchAll();
+    $id = $options['id'];
+    $option_id = $options['option_id'];
    
 }
 catch (PDOException $e) {
@@ -32,15 +29,12 @@ catch (PDOException $e) {
 
 try {
     if (isset($_POST['submit'])) {
-        if (!empty($_POST['reservation_date']) && !empty($_POST['flight_id']) && !empty($_POST['option_id']) && !empty($_POST['user_id'])) {
-            $id= $row['id'];
-            $reservation_date= $_POST['reservation_date'];
-            $flight_id= $_POST['flight_id'];
-            $user_id= $_POST['user_id'];
-            $option_id= $_POST['option_id'];
-            $sql = "UPDATE  booking SET  reservation_date =:reservation_date, flight_id = :flight_id , user_id = :user_id, option_id = :option_id WHERE id = :id ";
+        if (!empty($_POST['luggage']) && !empty($_POST['meal'])) {
+            $luggage = $_POST['luggage'];
+            $meal = $_POST['meal'];
+            $sql = "UPDATE options SET option_id = :option_id WHERE id = :id ";
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([':id'=>$id,':reservation_date'=>$reservation_date, ':flight_id'=>$flight_id, ':user_id'=>$user_id, ':option_id'=>$option_id]);
+            $stmt->execute([':option_id'=>$option_id]);
             header('location:account.php');
             
         } 
@@ -61,27 +55,14 @@ catch (PDOException $e) {
 <section>
 
 <form action="" method="post" >
-    <h3>Modifier un vol:</h3> <br> <br>
+    <h3>Modifier les options : </h3> <br> <br>
     <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label">Date de réservation:</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" name="reservation_date" value="<?php echo $reservation_date; ?>">
+    <input class="form-check-input" type="checkbox" id="luggage">
+          <label class="form-check-label" for="luggage"> Ajouter un baggage supplémentaire en soute (optionnel)<?php echo $option_id; ?></label>
     </div>
     <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Vol:</label>
-        <input type="text" class="form-control" name="flight_id" id="formGroupExampleInput2" value="<?php echo $flight_id;?>">
-    </div>
-    </div>
-    <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label">Pour:</label>
-        <input type="text" class="form-control" name="user_id" id="formGroupExampleInput" value="<?php echo $user_id;?>">
-    </div>
-    <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Baggage(s):</label>
-        <input type="decimal" class="form-control" name="option_id" id="formGroupExampleInput2" value="<?php echo $option_id; ?>">
-    </div>
-    <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Repas:</label>
-        <input type="decimal" class="form-control" name="option_id" id="formGroupExampleInput2" value="<?php echo $option_id; ?>">
+    <input class="form-check-input" type="checkbox" id="meal">
+          <label class="form-check-label" for="meal"> Ajouter un repas (optionnel)<?php echo $option_id; ?></label>
     </div>
   </div>
   <button type="submit" name="submit" class="btn btn-primary">Sauvegarder</button>

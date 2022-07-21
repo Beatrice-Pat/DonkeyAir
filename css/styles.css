@@ -11,8 +11,25 @@
 }
 
 h1{
+    padding-bottom: 50px;
     text-align: center;
     margin-top: 50px;
+}
+
+h3{
+    text-align: center;
+    margin-top: 50px;
+}
+
+p {
+    text-align: center;
+    margin-top: 50px;
+}
+
+body {
+    position: relative;
+    padding-bottom: 200px;
+    min-height: 100vh;
 }
 
 /* MENU BURGER DESKTOP  */
@@ -103,5 +120,40 @@ input[type=submit] {
     width: 100%;
 }
 
+
+
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    padding: 0;
+    box-sizing: border-box;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+}
+
+.social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5 ease;
+}
+
+.social-links a:hover {
+    color: rgb(0, 0, 0);
+    background-color: white;
+}
 
 

@@ -22,10 +22,13 @@
             <div class=" collapse navbar-collapse justify-content-end ul-bg" id="btn">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link mx-3 text-white fs-5" aria-current="page" href="#">Accueil</a>
+                        <a class="nav-link mx-3 text-white fs-5" aria-current="page" href="booking.php">Recherche Vol</a>
                     </li>
                     <li class="nav-item">
                         <a href="account.php" class="nav-link mx-3 text-white fs-5">Mon compte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="covid.php" class="nav-link mx-3 text-white fs-5">Covid-19</a>
                     </li>
                     <li class="nav-item">
                         <a href="logout.php" class="nav-link mx-3 text-white fs-5">Déconnexion</a>
