@@ -1,9 +1,19 @@
 <?php
 
 include('header.php');
-require_once './bddConnexion.php';
+require_once 'bddConnexion.php';
 
 session_start();
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db", $usname, $dppass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+}
+    catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+}
+
 
 
 ?>
@@ -37,18 +47,20 @@ session_start();
         </head>
 </body>
 
-    <?php
-    $sql = 'SELECT bookings.reservation_date, flights.*, user_infos.lastname,
-            user_infos.firstname, options.* from bookings 
-            inner join flights on flights.id = bookings.flight_id 
-            inner join user_infos on user_infos.id = bookings.user_id  
-            inner join options on options.id = bookings.option_id';
+<?php
+$sql = 'SELECT bookings.*, flights.*, user_infos.lastname, user_infos.firstname, options.* 
+        FROM bookings 
+        INNER JOIN flights ON flights.id = bookings.flight_id 
+        INNER JOIN user_infos ON user_infos.id = bookings.user_id 
+        INNER JOIN options ON options.id = bookings.option_id 
+        WHERE user_infos.id = ' . $_COOKIE["donkey_air_user_id"];
 
-    $stmt = $pdo->query($sql);
-    $bookings = $stmt->fetchAll(); 
+
+$stmt = $pdo->query($sql);
+$bookings = $stmt->fetchAll(); 
 
     for ($i = 0; $i < count($bookings); $i++) {
-        $id = $bookings[$i]['id'];
+        $booking_id = $bookings[$i][0];
         $reservation_date = $bookings[$i]['reservation_date'];
         $flight_id = $bookings[$i]['vol_number'];
         $user_id = $bookings[$i]['id'];
@@ -66,22 +78,21 @@ session_start();
             <td scope="col"><?php echo $option_luggage; ?></td>
             <td scope="col"><?php echo $option_meal; ?></td> 
             <td scope="col"><?php echo $price_id; ?></td> 
-            
-            <td><button type="button" class="btn btn-info "><a style="text-decoration: none; color:white" href=" copyupdate.php?updateid=<?php echo $id; ?>">MODIFIER</a></button></td>
-            <td><button type="button" class="btn btn-danger"><a style="text-decoration: none; color:white" href="delete.php?deleteid=<?php echo $id; ?>">ANNULATION</a></button></td> 
+            <td><button type="button" class="btn btn-info "><a style="text-decoration: none; color:white" href=" copyupdate.php?updateid=<?php echo $booking_id; ?>">MODIFIER</a></button></td>
+            <td><button type="button" class="btn btn-danger"><a style="text-decoration: none; color:white" href="delete.php?deleteid=<?php echo $booking_id; ?>">ANNULATION</a></button></td> 
 
         </div> 
-        </tr>    
+        </tr> 
+        </table>
     <?php
 }   ?>
 
 
-</body>
-</table>
+
+
  <!-- Option 1: Bootstrap Bundle with Popper -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
-</body>
 
 <?php
 include 'footer.php';

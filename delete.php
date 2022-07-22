@@ -1,6 +1,13 @@
 <?php
-require_once './bddConnexion.php';
+require_once 'bddConnexion.php';
 
+try {
+	$pdo = new PDO("mysql:host=$host;dbname=$db", $usname, $dppass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+} catch (PDOException $e) {
+	echo $e->getMessage();
+}
 
 if(isset($_GET['deleteid'])){
     global $pdo;

@@ -12,26 +12,27 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
+
 <body>
-    <header>
+    <header>          
         <nav class="navbar navbar-expand-md bg">
-            <img src="Images/LogoDonkeyAir.webp"></img>
+            <img src="Images/icons8-plage-50.png" ></img>
             <button class="navbar-toggler me-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#btn">
                 <i class='bx bx-menu bx-md'></i>
             </button>
             <div class=" collapse navbar-collapse justify-content-end ul-bg" id="btn">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link mx-3 text-white fs-5" aria-current="page" href="booking.php">Recherche Vol</a>
+                        <a class="nav-link mx-3  fs-5" aria-current="page" href="booking.php">Recherche Vol</a>
                     </li>
                     <li class="nav-item">
-                        <a href="account.php" class="nav-link mx-3 text-white fs-5">Mon compte</a>
+                        <a href="account.php" class="nav-link mx-3  fs-5">Mon compte</a>
                     </li>
                     <li class="nav-item">
-                        <a href="covid.php" class="nav-link mx-3 text-white fs-5">Covid-19</a>
+                        <a href="covid.php" class="nav-link mx-3  fs-5">Covid-19</a>
                     </li>
                     <li class="nav-item">
-                        <a href="logout.php" class="nav-link mx-3 text-white fs-5">Déconnexion</a>
+                        <a href="logout.php" class="nav-link mx-3  fs-5">Déconnexion</a>
                     </li>
                 </ul>
             </div>
