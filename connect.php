@@ -1,11 +1,11 @@
 <?php
 // conection à la database
 $usname = 'root';
-$dppass = '';
+$dbpass = '';
 $host = 'localhost';
 $db = 'donkeyair';
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db", $usname, $dppass);
+    $pdo = new PDO("mysql:host=$host;dbname=$db", $usname, $dbpass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     
