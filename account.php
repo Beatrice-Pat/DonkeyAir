@@ -34,19 +34,20 @@ try {
 <body>
     <h1>Mon compte</h1> <br> <br>
     <table class="table">
-        <head>
-            <tr>
+        <thead>
+        <tr>
                 <th scope="col">Date de réservation</th>
                 <th scope="col">Vol</th>
                 <th scope="col">Pour</th>
                 <th scope="col">Baggage(s)</th>
                 <th scope="col">Repas</th>
                 <th scope="col">Prix</th>
-            </tr>
-            <br>
-        </head>
-</body>
+        </tr>    
+        </thead>
+        </tr>
+<tbody>
 
+<tr>
 <?php
 $sql = 'SELECT bookings.*, flights.*, user_infos.lastname, user_infos.firstname, options.* 
         FROM bookings 
@@ -70,7 +71,6 @@ $bookings = $stmt->fetchAll();
         $option_meal = $bookings[$i]['meal'];
         $price_id = $bookings[$i]['price'];?>
 
-        <tr>
         <div>
             <td scope="col"><?php echo $reservation_date; ?></td> 
             <td scope="col"><?php echo $flight_id; ?></td>
@@ -82,8 +82,8 @@ $bookings = $stmt->fetchAll();
             <td><button type="button" class="btn btn-danger"><a style="text-decoration: none; color:white" href="delete.php?deleteid=<?php echo $booking_id; ?>">ANNULATION</a></button></td> 
 
         </div> 
-        </tr> 
-        </table>
+</tr> 
+    
     <?php
 }   ?>
 
@@ -97,5 +97,7 @@ $bookings = $stmt->fetchAll();
 <?php
 include 'footer.php';
 ?>
-
+</tbody>
+</table>
+</body>
 </html>

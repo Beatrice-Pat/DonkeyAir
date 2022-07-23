@@ -29,6 +29,9 @@ Vous souhaitez vérifier les conditions à remplir avant votre départ, découvr
 <p>* Sous réserve d'éventuels frais de modification et/ou d'un éventuel réajustement tarifaire. Voir les conditions tarifaires de votre billet. </p>
 
 
+<img class="logo" src="Images/stickers-port-masque-obligatoire-autocollant.jpeg" ></img>
+
+
 <?php
 include 'footer.php';
 ?>

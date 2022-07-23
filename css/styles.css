@@ -10,34 +10,46 @@
     box-sizing: border-box;
 }
 
+
+
 h1{
+    font-family: 'poppins', sans-serif;
     padding-bottom: 50px;
     text-align: center;
     margin-top: 50px;
 }
 
 h3{
+    font-family: 'poppins', sans-serif;
     text-align: center;
     margin-top: 50px;
 }
 
 p {
+    font-family: 'poppins', sans-serif;
     text-align: center;
     margin-top: 50px;
 }
 
 body {
+    font-family: 'poppins', sans-serif;
     position: relative;
     padding-bottom: 200px;
     min-height: 100vh;
 }
 
+
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 100px; 
+}
+
+
 /* MENU BURGER DESKTOP  */
 
-.logo {
-    line-height: 80px;
-    padding: 0 80px;
-}
 
 .bg  {
     background-color: rgb(210, 210, 210);
@@ -58,6 +70,7 @@ body {
 }
 
 .nav-link {
+    font-family: 'poppins', sans-serif;
     color: black;
     display: block;
     padding: var;
@@ -67,6 +80,7 @@ body {
 }
 
 .navbar-brand {
+    font-family: 'poppins', sans-serif;
     color: #ffffff;
     font-size: 35px;
     line-height: 80px;
@@ -77,22 +91,19 @@ body {
     position: relative;
 }
 
-img {
-
-}
 
 #container{
     width:400px;
     margin:0 auto;
-    margin-top:30%;
+    margin-top:20%;
 }
 /* Bordered form */
 form {
-    
     width:100%;
     padding: 50px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
+
 #container h1{
     display: flex;
     justify-content: center;
@@ -165,7 +176,7 @@ form {
 
 .form-group {
     font-size: large;
-    color: #ffffff;
+    color: #000000;
     display: flex;
     justify-content: space-evenly;
     margin: 10px;
@@ -178,9 +189,8 @@ form {
 
 .button-submit input {
     background-color: #057f85;
-    border: none;
-    color: #DBDBD9;
+    color: #ffffff;
     font-size: 25px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 

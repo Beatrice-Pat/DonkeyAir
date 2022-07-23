@@ -3,9 +3,15 @@
 require_once './bddConnexion.php';
 include 'header.php';
 
+if($_SERVER ['REQUEST_METHOD']=='POST')
+{
+
+}
+
+
 
 //On écrit la requête
-$sql = "SELECT * FROM `flights` ";
+$sql = "SELECT * FROM `airports` ";
 //On évécute la requête
 $requete = $pdo->query($sql);
 //On récupère les données
@@ -29,7 +35,7 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
 <style>
   body {
     height: 100%;
-    background-image: url('Images/avion1.jpg');
+    background-image: url('Images/avion6.jpg');
     background-size: cover;
   }
 </style>
@@ -49,7 +55,7 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
           <select name="country" id="country-select" required>
             <option value="">Pointe à Pitre, Guadeloupe PTP</option>
             <?php foreach ($flights as $flight) { ?>
-              <option value="<?php echo $flight['id'] ?>"><?php echo $flight['from']; ?></option>
+              <option value="<?php echo $flight['id'] ?>"><?php echo $flight['name']; ?></option>
             <?php } ?>
           </select>
 
@@ -57,7 +63,7 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
           <select name="country" id="country-select" required>
             <option value="">New York, USA JFK</option>
             <?php foreach ($flights as $flight) { ?>
-              <option value="<?php echo $flight['id'] ?>"><?php echo $flight['from']; ?></option>
+              <option value="<?php echo $flight['id'] ?>"><?php echo $flight['name']; ?></option>
             <?php } ?>
           </select>
         </div>
@@ -92,8 +98,8 @@ $flights = $requete->fetchAll(pdo::FETCH_ASSOC);
 
 
         <div class="button-submit">
-          <input type="submit" value="Lancer la recherche" name="recherche" id="recherche" class="btn btn btn-secondary">
-        </div>
+        <input type="submit" value="Lancer la recherche" name="recherche" id="recherche">
+         </div>
 
       </form>
     </div>
