@@ -1,0 +1,108 @@
+/* TYPO */
+
+@import url('https://fonts.googleapis.com/css2?');
+@import url('https://fonts.googleapis.com/css2?family=poppins:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* MENU BURGER DESKTOP  */
+
+.logo {
+    line-height: 80px;
+    padding: 0 80px;
+}
+
+.bg  {
+    background-color: rgb(0, 0, 0);
+}
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-toggler:focus {
+    box-shadow:none;
+}
+
+@media (max-widht:360px) {
+    .ul-bg {
+    background-color:rgb(0, 0, 0);
+    }
+}
+
+.nav-link {
+    display: block;
+    padding: var;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    text-align: center;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 80px;
+}
+
+a.active, a:hover{
+    color: white;
+    background-color: #ff3d00;
+    border-radius: 5px;
+}
+
+
+
+img {
+    height: 70px;
+    width: 110px;
+    color: white;
+}
+
+#container{
+    width:400px;
+    margin:0 auto;
+    margin-top:30%;
+}
+/* Bordered form */
+form {
+    width:100%;
+    padding: 30px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#container h1{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+/* Full-width inputs */
+input[type=email], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #2176a1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+

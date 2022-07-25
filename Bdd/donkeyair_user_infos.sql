@@ -37,7 +37,12 @@ CREATE TABLE `user_infos` (
 
 LOCK TABLES `user_infos` WRITE;
 /*!40000 ALTER TABLE `user_infos` DISABLE KEYS */;
-INSERT INTO `user_infos` VALUES (1,'Béatrice','Patisson','b.patisson@gmail.com'),(2,'Alexandre','Bonnard','a.bonnard@gmail.com'),(3,'Matthieu','Dronzin','m.dronzin@gmail.com'),(4,'Ali','Hamouga','a.hamouga@gmail.com'),(5,'Cédric','Lombardot','c.lombardot@gmail.com');
+INSERT INTO `user_infos` VALUES 
+  (1,'Béatrice','Patisson','b.patisson@gmail.com'),
+  (2,'Alexandre','Bonnard','a.bonnard@gmail.com'),
+  (3,'Matthieu','Dronzin','m.dronzin@gmail.com'),
+  (4,'Ali','Hamouga','a.hamouga@gmail.com'),
+  (5,'Cédric','Lombardot','c.lombardot@gmail.com');
 /*!40000 ALTER TABLE `user_infos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

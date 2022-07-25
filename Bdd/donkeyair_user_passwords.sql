@@ -24,7 +24,7 @@ DROP TABLE IF EXISTS `user_passwords`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_passwords` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `mdp` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_id` (`user_id`),
@@ -38,7 +38,12 @@ CREATE TABLE `user_passwords` (
 
 LOCK TABLES `user_passwords` WRITE;
 /*!40000 ALTER TABLE `user_passwords` DISABLE KEYS */;
-INSERT INTO `user_passwords` VALUES (1,'1234',1),(2,'1234',2),(3,'1234',3),(4,'1234',4),(5,'1234',5);
+INSERT INTO `user_passwords` VALUES 
+  (1,'1234',1),
+  (2,'1234',2),
+  (3,'1234',3),
+  (4,'1234',4),
+  (5,'1234',5);
 /*!40000 ALTER TABLE `user_passwords` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
