@@ -49,7 +49,6 @@ function user_login()
 }
 ?>
 
-
 <!doctype html>
 <html lang="fr">
 <meta charset="utf-8">
@@ -71,6 +70,7 @@ function user_login()
     <main>
     <div id="container">
         <form action="" method="POST">
+
             <h1>Connexion</h1>
                 
             <label><b></b></label>
