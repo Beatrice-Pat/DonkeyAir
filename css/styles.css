@@ -10,6 +10,32 @@
     box-sizing: border-box;
 }
 
+<<<<<<< HEAD
+=======
+h1{
+    
+    padding-bottom: 50px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h3{
+    text-align: center;
+    margin-top: 50px;
+}
+
+p {
+    text-align: center;
+    margin-top: 50px;
+}
+
+body {
+    position: relative;
+    padding-bottom: 200px;
+    min-height: 100vh;
+}
+
+>>>>>>> 1ff4def (ajout de la page d'accueil et refresh des fichiers)
 /* MENU BURGER DESKTOP  */
 
 .logo {
@@ -18,11 +44,11 @@
 }
 
 .bg  {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(210, 210, 210);
 }
 
 .navbar {
-    padding: 0;
+    padding-left: 50px;
 }
 
 .navbar-toggler:focus {
@@ -31,11 +57,12 @@
 
 @media (max-widht:360px) {
     .ul-bg {
-    background-color:rgb(0, 0, 0);
+    background-color:rgb(209, 209, 209);
     }
 }
 
 .nav-link {
+    color: black;
     display: block;
     padding: var;
     text-decoration: none;
@@ -50,18 +77,12 @@
     padding: 0 80px;
 }
 
-a.active, a:hover{
-    color: white;
-    background-color: #ff3d00;
-    border-radius: 5px;
+.searchBox{
+    position: relative;
 }
 
-
-
 img {
-    height: 70px;
-    width: 110px;
-    color: white;
+
 }
 
 #container{
@@ -71,8 +92,9 @@ img {
 }
 /* Bordered form */
 form {
+    
     width:100%;
-    padding: 30px;
+    padding: 50px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #container h1{
@@ -84,7 +106,7 @@ form {
 }
 
 /* Full-width inputs */
-input[type=email], input[type=password] {
+[type=email],[type=password] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -94,7 +116,7 @@ input[type=email], input[type=password] {
 }
 
 /* Set a style for all buttons */
-input[type=submit] {
+[type=submit] {
     background-color: #2176a1;
     color: white;
     padding: 14px 20px;
@@ -106,3 +128,62 @@ input[type=submit] {
 
 
 
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: rgb(209, 209, 209);
+    padding: 0;
+    box-sizing: border-box;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+}
+
+.social-links a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(79, 79, 79);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5 ease;
+}
+
+.social-links a:hover {
+    color: rgb(0, 0, 0);
+    background-color: white;
+}
+
+
+/* RECHERCHE VOL */
+
+
+
+.form-group {
+    font-size: large;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+
+.button-submit{
+    text-align: center;
+}
+
+.button-submit input {
+    background-color: #057f85;
+    border: none;
+    color: #DBDBD9;
+    font-size: 25px;
+    margin-top: 15px;
+}
