@@ -1,5 +1,6 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 include('header.php');
 require_once 'db_connexion_info.php';
 
@@ -58,13 +59,16 @@ for ($i = 0; $i < count($bookings); $i++) {
 =======
 
 include('header.php');
+=======
+include 'header.php';
+>>>>>>> 5b92dd6 (modification du 25 juillet)
 require_once 'connect.php';
 
+session_start();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -73,14 +77,13 @@ require_once 'connect.php';
         <link rel="icon" href="Images/icons8-student-64.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
         <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/styles.css">
+        <link href="css/style.css" rel="stylesheet" >
+        <link href="css/styles.css" rel="stylesheet" >
     </head>
-
     <body>
         <h1>Mon compte</h1> <br> <br>
         <table class="table">
-
-            <head>
+         <thhead>
                 <tr>
                     <th scope="col">Date de réservation</th>
                     <th scope="col">Vol</th>
@@ -90,9 +93,7 @@ require_once 'connect.php';
                     <th scope="col">Prix</th>
                 </tr>
                 <br>
-            </head>
-    </body>
-
+         </thhead>
     <?php
     $sql = 'SELECT bookings.*, flights.*, user_infos.lastname, user_infos.firstname, options.* FROM bookings 
                 INNER JOIN flights ON flights.id = bookings.flight_id 
@@ -122,10 +123,8 @@ require_once 'connect.php';
                 <td scope="col"><?php echo $option_luggage; ?></td>
                 <td scope="col"><?php echo $option_meal; ?></td>
                 <td scope="col"><?php echo $price_id; ?></td>
-
                 <td><button type="button" class="btn btn-info "><a style="text-decoration: none; color:white" href=" copyupdate.php?updateid=<?php echo $id; ?>">MODIFIER</a></button></td>
                 <td><button type="button" class="btn btn-danger"><a style="text-decoration: none; color:white" href="delete.php?deleteid=<?php echo $id; ?>">ANNULATION</a></button></td>
-
             </div>
         </tr>
         </table>
@@ -135,12 +134,9 @@ require_once 'connect.php';
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 
-
-
     <?php
     include 'footer.php';
     ?>
     </body>
 
->>>>>>> 4559ac0 (chargement des fichiers mis à jour)
 </html>

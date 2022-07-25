@@ -33,7 +33,6 @@ body {
     min-height: 100vh;
 }
 
->>>>>>> 1ff4def (ajout de la page d'accueil et refresh des fichiers)
 /* MENU BURGER DESKTOP  */
 
 .logo {
@@ -79,9 +78,6 @@ body {
     position: relative;
 }
 
-img {
-
-}
 
 #container{
     width:400px;

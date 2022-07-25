@@ -1,10 +1,7 @@
 <?php
-
-require_once 'db_connexion_info.php';
-
-$query = 'SELECT * FROM airports';
-$statement = $pdo->query($query);
-$airports = $statement->fetchAll(pdo::FETCH_ASSOC);
+include 'header.php';
+//connexion à la base de données
+require_once 'connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = 'SELECT * FROM flight WHERE departure_airport = '. $_POST['departure_airport'] . ' AND destination_airport = ' . $_POST['destination_airport'] . ' AND flight.date = \'' .  $_POST['departure_date'] . '\'';
@@ -25,15 +22,15 @@ function getQueryResults($query, $pdo)
 
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="style.css" rel="stylesheet">
-    <title>Réservations</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <title>Réservations</title>
 </head>
 
 <body>
@@ -125,6 +122,7 @@ function getQueryResults($query, $pdo)
     <!--Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
+
 </body>
 
 </html>

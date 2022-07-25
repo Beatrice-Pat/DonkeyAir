@@ -13,22 +13,28 @@ body {
     display: flex;
     justify-content: end;
 }
-
+.nav-link {
+    font-family: 'poppins', sans-serif;
+    color: black;
+    display: block;
+    padding: var;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    text-align: center;
+}
 /*Titre*/
 h1 {
-    font-size: 30px;
-    font-weight: normal;
-    margin: 75px; 
-    padding-block-end: 25px;
+    display: flex;
     justify-content: center;
-    border-style:double;
-    ;
+    align-items: center;
+    margin-top: 150px;
+    padding-block-end: 30px;
+    border-width: 4px;
 }
-/*Image
-.image {
-    background-attachment: scroll;
-    size: 15px;
-}*/
+
+.txt-rotate {
+    color: coral;
+}
 
 /*Bouton*/
 .btn {
