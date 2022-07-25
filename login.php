@@ -4,16 +4,9 @@ require_once 'db_connexion_info.php';
 
 session_start();
 
-try {
-	$pdo = new PDO($dsn, $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    if (isset($_POST['email']) && isset($_POST['password'])) {
-        user_login();
-    } 
-} catch (PDOException $e) {
-	echo $e->getMessage();
-}
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    user_login();
+} 
 
 function user_login()
 {
