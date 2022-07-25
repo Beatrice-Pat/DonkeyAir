@@ -1,16 +1,12 @@
 <?php
-require_once 'connect.php';
+
+require_once 'db_connexion_info.php';
+
 session_start();
-try {
-	$pdo = new PDO($dsn, $user, $pass);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-    if (isset($_POST['email']) && isset($_POST['password'])) {
-        user_login();
-    } 
-} catch (PDOException $e) {
-	echo $e->getMessage();
-}
+
+if (isset($_POST['email']) && isset($_POST['password'])) {
+    user_login();
+} 
 
 function user_login()
 {
@@ -50,66 +46,16 @@ function user_login()
     } catch (PDOException $e) {
         echo "ERROR!!!: " . $e->getMessage();
     }
->>>>>>> 4559ac0 (chargement des fichiers mis à jour)
 }
-
-function user_login()
-{
-    try {
-        global $pdo;
-        $email = filter_var(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL), FILTER_VALIDATE_EMAIL);
-        $password = $_POST['password'];
-
-        $query = 'SELECT user_infos.*, user_passwords.mdp 
-            FROM user_infos 
-            INNER JOIN user_passwords ON user_infos.id = user_passwords.user_id 
-            WHERE email = :email';
-        $statement = $pdo->prepare($query);
-        $statement->bindValue(':email', $email, \PDO::PARAM_STR);
-        $statement->execute();
-        $user = $statement->fetchAll();
-
-        if (count($user) == 0) {
-            echo "<script>alert('Veuillez vous enregistrer.');</script>";
-            return;
-        }
-        if (count($user) > 1) {
-            echo "<script>alert('Veuillez contacter l'administrateur.');</script>";
-            return;
-        }
-        if ($password == $user[0]['mdp']) {
-            $_SESSION['userEmail'] = $user[0]["email"];
-            $_SESSION['userId'] = $user[0]["id"];
-            $cookie_name = "donkey_air_user_id";
-            $cookie_value = $user[0]["id"];
-            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-            header('Location:header.php');
-        } else {
-            echo "<script>alert('Mot de passe ou mail incorrect.');</script>";
-            return;
-        }
-    } catch (PDOException $e) {
-        echo "ERROR!!!: " . $e->getMessage();
 ?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-<!Doctype html>
-
-=======
 
 
 <!doctype html>
->>>>>>> 1ff4def (ajout de la page d'accueil et refresh des fichiers)
 <html lang="fr">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css" integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR" crossorigin="anonymous">
 <link rel="stylesheet" href="css/styles.css">
-<<<<<<< HEAD
-
-=======
->>>>>>> 1ff4def (ajout de la page d'accueil et refresh des fichiers)
 <title>DonkeyAir</title>
 <style>
     body{
@@ -123,15 +69,8 @@ function user_login()
 </style>
 <body>
     <main>
-<<<<<<< HEAD
-
-    <div id=“container”>
-        <form action=“” method=“POST”>
-
-=======
     <div id="container">
         <form action="" method="POST">
->>>>>>> 1ff4def (ajout de la page d'accueil et refresh des fichiers)
             <h1>Connexion</h1>
                 
             <label><b></b></label>
